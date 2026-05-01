@@ -7,6 +7,7 @@ import Artists from "./components/Artists";
 import SongDetail from "./components/SongDetail";
 import AlbumDetail from "./components/AlbumDetail";
 import ArtistDetail from "./components/ArtistDetail";
+import SearchResults from "./components/SearchResults";
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     children: [
       // Home Page
       { index: true, element: <Home /> },
+
+      // Search Results
+      { path: "search", element: <SearchResults /> },
+      { path: "search/:id", element: <SongDetail /> },
 
       // Songs & Song Detail
       { path: "songs", element: <Songs /> },

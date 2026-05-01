@@ -213,11 +213,58 @@ const App = () => {
         },
     ];
 
-    
+    // Compute unique albums
+    const albums = songs.reduce((acc: { album: string; albumPoster: string; artist: string; id: string }[], song) => {
+      if (song.album && !acc.find(a => a.album === song.album)) {
+        acc.push({ 
+          album: song.album, 
+          albumPoster: song.albumPoster, 
+          artist: song.artist,
+          id: encodeURIComponent(song.album.toLowerCase())
+        });
+      }
+      return acc;
+    }, []);
+
+    // Compute unique artists
+    const artists = songs.reduce((acc: { artist: string; artistPic: string; id: string }[], song) => {
+      const artistNames = song.artist.split(/,|&|\/|feat\.|\+| and /i).map(a => a.trim()).filter(a => a);
+      artistNames.forEach(artistName => {
+        const normalizedName = artistName.toLowerCase();
+        if (!acc.find(a => a.artist.toLowerCase() === normalizedName)) {
+          acc.push({ 
+            artist: artistName, 
+            artistPic: song.artistPic || "", // Use the pic if available, otherwise empty
+            id: encodeURIComponent(normalizedName)
+          });
+        }
+      });
+      return acc;
+    }, []);
 
   return (
-    <div>
-        <CardContext.Provider value={{songs}}>
+    <div className="relative min-h-screen">
+        {/* Animated Music Notes Background */}
+        <div className="fixed inset-0 pointer-events-none z-[-1]">
+            <div className="music-note note-1">♪</div>
+            <div className="music-note note-2">♫</div>
+            <div className="music-note note-3">♬</div>
+            <div className="music-note note-4">♩</div>
+            <div className="music-note note-5">♪</div>
+            <div className="music-note note-6">♫</div>
+            <div className="music-note note-7">♬</div>
+            <div className="music-note note-8">♩</div>
+            <div className="music-note note-9">♪</div>
+            <div className="music-note note-10">♫</div>
+            <div className="music-note note-11">♬</div>
+            <div className="music-note note-12">♩</div>
+            <div className="music-note note-13">♪</div>
+            <div className="music-note note-14">♫</div>
+            <div className="music-note note-15">♬</div>
+            <div className="music-note note-16">♩</div>
+        </div>
+        
+        <CardContext.Provider value={{songs, albums, artists}}>
             <RouterProvider router={router}/>
         </CardContext.Provider>
     </div>

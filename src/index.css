@@ -12,9 +12,227 @@ html {
 body {
   margin: 0;
   
-  background: linear-gradient(to bottom, #000, #002a14, #000);
+  background: linear-gradient(-45deg, #000, #002a14, #000, #001a0a);
+  background-size: 400% 400%;
   height: 100vh;
+  animation: gradientShift 15s ease infinite;
 }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-5vw) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(20vw) translateY(-5vh) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(40vw) translateY(5vh) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(60vw) translateY(-5vh) rotate(270deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(105vw) translateY(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Animated Music Notes */
+.music-note {
+  position: absolute;
+  opacity: 0;
+  font-size: 2rem;
+  color: #00ff88;
+  font-weight: bold;
+  animation: float 15s linear infinite;
+  user-select: none;
+  text-shadow: 
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 15px #32cd32,
+    0 0 20px #32cd32,
+    0 0 25px #228b22,
+    0 0 30px #228b22;
+}
+
+.music-note.note-1 {
+  top: 10%;
+  left: 0;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+.music-note.note-2 {
+  top: 20%;
+  left: 0;
+  animation-delay: 3s;
+  animation-duration: 22s;
+}
+
+.music-note.note-3 {
+  top: 40%;
+  left: 0;
+  animation-delay: 6s;
+  animation-duration: 28s;
+}
+
+.music-note.note-4 {
+  top: 60%;
+  left: 0;
+  animation-delay: 9s;
+  animation-duration: 24s;
+}
+
+.music-note.note-5 {
+  top: 80%;
+  left: 0;
+  animation-delay: 12s;
+  animation-duration: 26s;
+}
+
+.music-note.note-6 {
+  top: 30%;
+  left: 0;
+  animation-delay: 15s;
+  animation-duration: 23s;
+}
+
+.music-note.note-7 {
+  top: 70%;
+  left: 0;
+  animation-delay: 18s;
+  animation-duration: 27s;
+}
+
+.music-note.note-8 {
+  top: 50%;
+  left: 0;
+  animation-delay: 21s;
+  animation-duration: 25s;
+}
+
+.music-note.note-9 {
+  top: 15%;
+  left: 0;
+  animation-delay: 2s;
+  animation-duration: 30s;
+}
+
+.music-note.note-10 {
+  top: 35%;
+  left: 0;
+  animation-delay: 5s;
+  animation-duration: 21s;
+}
+
+.music-note.note-11 {
+  top: 55%;
+  left: 0;
+  animation-delay: 8s;
+  animation-duration: 29s;
+}
+
+.music-note.note-12 {
+  top: 75%;
+  left: 0;
+  animation-delay: 11s;
+  animation-duration: 24s;
+}
+
+.music-note.note-13 {
+  top: 25%;
+  left: 0;
+  animation-delay: 14s;
+  animation-duration: 26s;
+}
+
+.music-note.note-14 {
+  top: 45%;
+  left: 0;
+  animation-delay: 17s;
+  animation-duration: 22s;
+}
+
+.music-note.note-15 {
+  top: 65%;
+  left: 0;
+  animation-delay: 20s;
+  animation-duration: 28s;
+}
+
+.music-note.note-16 {
+  top: 85%;
+  left: 0;
+  animation-delay: 23s;
+  animation-duration: 25s;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Animated Music Notes */
+
 
 
 

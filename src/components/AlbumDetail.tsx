@@ -8,7 +8,7 @@ const AlbumDetail = () => {
 
   const { songs } = useContext(CardContext);
 
-  const albumName = albumId.replace(/-/g, " ").toLowerCase();
+  const albumName = decodeURIComponent(albumId).toLowerCase();
 
   const filterSongs = songs.filter(
     (i) => i.album?.toLowerCase() === albumName
